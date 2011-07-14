@@ -34,8 +34,9 @@ class TestLimoneZODB(unittest2.TestCase):
 
     def assert_object_is_persistent(self, obj):
         import persistent
+        from persistent.list import PersistentList
         self.assertIsInstance(obj, persistent.Persistent)
-        self.assertIsInstance(obj.phones, persistent.Persistent)
+        self.assertIsInstance(obj.phones._data, PersistentList)
         self.assertIsInstance(
             obj.phones[0], persistent.Persistent)
 

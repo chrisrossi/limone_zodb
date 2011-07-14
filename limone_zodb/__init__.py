@@ -7,7 +7,7 @@ class _MappingNode(persistent.Persistent, limone._MappingNode):
     pass
 
 
-class _SequenceNode(persistent.Persistent, limone._SequenceNode):
+class _SequenceNode(limone._SequenceNode):
     _data_type = PersistentList
 
 
