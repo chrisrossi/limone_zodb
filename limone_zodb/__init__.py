@@ -13,7 +13,13 @@ class _SequenceNode(limone._SequenceNode):
 
 class _MetaType(type):
     def __new__(cls, name, bases, members):
-        bases = (persistent.Persistent,) + bases
+        already_persistent = False
+        for base in bases:
+            if issubclass(base, persistent.Persistent):
+                already_persistent = True
+                break
+        if not already_persistent:
+            bases = (persistent.Persistent,) + bases
         return type.__new__(cls, name, bases, members)
 
     def __init__(cls, name, bases, members):

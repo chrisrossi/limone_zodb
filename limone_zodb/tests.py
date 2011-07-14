@@ -53,6 +53,20 @@ class TestLimoneZODB(unittest2.TestCase):
         self.assertEqual(obj.foo, 'bar')
         self.assert_object_is_persistent(obj)
 
+    def test_content_type_already_persistent(self):
+        import limone_zodb
+        import persistent
+
+        @limone_zodb.content_type(self.schema)
+        class TestType(persistent.Persistent):
+            foo = 'bar'
+
+        obj = TestType(name='Jake', age=43, phones=[
+            {'location': 'home', 'number': '555-1212'},
+            {'location': 'work', 'number': '555-2121'}])
+        self.assertEqual(obj.foo, 'bar')
+        self.assert_object_is_persistent(obj)
+
     def test_content_schema(self):
         import limone_zodb
         TestType = limone_zodb.content_schema(self.schema)
