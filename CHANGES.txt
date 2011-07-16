@@ -1,0 +1,7 @@
+Changelog for Limone ZODB
+-------------------------
+
+0.1a1 (2011-07-16)
+------------------
+
+- Initial alpha release.
