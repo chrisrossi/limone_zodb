@@ -3,7 +3,7 @@ import persistent
 from persistent.list import PersistentList
 
 
-class _MappingNode(persistent.Persistent, limone._MappingNode):
+class _MappingNode(limone._MappingNode, persistent.Persistent):
     pass
 
 

@@ -4,7 +4,8 @@ Changelog for Limone ZODB
 Unreleased
 ++++++++++
 
-- ...
+- Changed the method resolution order of _MappingNode to make sure that
+  limone's __setattr__ is called on attribute assignment.
 
 0.1a1 (2011-07-16)
 ++++++++++++++++++
